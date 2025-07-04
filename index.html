@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>ArtVibe Studio | Where Imagination Meets the Canvas.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="tools-board">
+        <div class="undo-redo">
+          <button id="undo-btn" title="Undo" disabled>
+            <i class="fas fa-undo"></i>
+          </button>
+          <button id="redo-btn" title="Redo" disabled>
+            <i class="fas fa-redo"></i>
+          </button>
+        </div>
+
+        <div class="row">
+          <label class="title">Tools</label>
+          <ul class="options">
+            <li class="option active tool" id="brush" title="Brush">
+              <i class="fas fa-paint-brush"></i>
+              <span>Brush</span>
+            </li>
+            <li class="option tool" id="eraser" title="Eraser">
+              <i class="fas fa-eraser"></i>
+              <span>Eraser</span>
+            </li>
+            <li class="option tool" id="line" title="Line">
+              <i class="fas fa-minus"></i>
+              <span>Line</span>
+            </li>
+            <li class="option tool" id="rectangle" title="Rectangle">
+              <i class="far fa-square"></i>
+              <span>Rectangle</span>
+            </li>
+            <li class="option tool" id="circle" title="Circle">
+              <i class="far fa-circle"></i>
+              <span>Circle</span>
+            </li>
+            <li class="option tool" id="triangle" title="Triangle">
+              <i class="fas fa-play"></i>
+              <span>Triangle</span>
+            </li>
+            <li class="option tool" id="text" title="Text">
+              <i class="fas fa-font"></i>
+              <span>Text</span>
+            </li>
+            <li class="option">
+              <input type="checkbox" id="fill-color" />
+              <label for="fill-color">Fill color</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="row shape-options" id="rectangle-options">
+          <div class="shape-option">
+            <label for="rect-corner">Corner Radius</label>
+            <input type="range" id="rect-corner" min="0" max="50" value="0" />
+          </div>
+        </div>
+
+        <div class="row shape-options" id="line-options">
+          <div class="shape-option">
+            <label for="line-width">Line Width</label>
+            <input type="range" id="line-width" min="1" max="30" value="5" />
+          </div>
+          <div class="shape-option">
+            <label for="line-dash">Dashed Line</label>
+            <input type="checkbox" id="line-dash" />
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="title">Brush Size</label>
+          <div class="brush-sizes">
+            <div class="brush-size active" data-size="2"><span>2px</span></div>
+            <div class="brush-size" data-size="5"><span>5px</span></div>
+            <div class="brush-size" data-size="10"><span>10px</span></div>
+            <div class="brush-size" data-size="15"><span>15px</span></div>
+            <div class="brush-size" data-size="20"><span>20px</span></div>
+          </div>
+          <div class="option">
+            <input type="range" id="size-slider" min="1" max="50" value="5" />
+          </div>
+        </div>
+
+        <div class="row colors">
+          <label class="title">Colors</label>
+          <ul class="options">
+            <li class="option"></li>
+            <li class="option selected"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option"></li>
+            <li class="option">
+              <input type="color" id="color-picker" value="#4A98F7" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <label class="title">Opacity</label>
+          <div class="option">
+            <input
+              type="range"
+              id="opacity-slider"
+              min="10"
+              max="100"
+              value="100" />
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="clear-canvas">
+            <i class="fas fa-trash-alt"></i>
+            Clear Canvas
+          </button>
+          <button class="save-img">
+            <i class="fas fa-download"></i>
+            Save As Image
+          </button>
+        </div>
+      </section>
+
+      <section class="drawing-board">
+        <canvas></canvas>
+        <div class="zoom-controls">
+          <div class="zoom-btn" id="zoom-in" title="Zoom In">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <div class="zoom-btn" id="zoom-out" title="Zoom Out">
+            <i class="fas fa-search-minus"></i>
+          </div>
+          <div class="zoom-btn" id="zoom-reset" title="Reset Zoom">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <div id="mobile-modal">
+      <div class="modal-content">
+        <i class="fas fa-desktop"></i>
+        <h2>Open in Desktop</h2>
+        <p>
+          This drawing app works best on larger screens. Please switch to a
+          desktop or tablet for the full experience.
+        </p>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
